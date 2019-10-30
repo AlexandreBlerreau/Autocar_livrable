@@ -24,6 +24,9 @@ Path=$(pwd);
 # 2. On se positionne à la racine de l'API
 cd $Path/serveur
 
+# 2.2 installation des packets (au cas ou seraient manquant)
+npm install > /dev/null 2>&1
+
 # 3. Lancement de l'API
 node api.js > /dev/null 2>&1 &
 pidApi=$!
@@ -37,6 +40,9 @@ cd $Path
 
 # 2. On se positionne à la racine des ressources web
 cd $Path/client-js
+
+# 2.2 installation des packets (au cas ou seraient manquant)
+npm install > /dev/null 2>&1
 
 # 3. Lancement du serveur web
 python3 -m http.server 8000 > /dev/null 2>&1 &
