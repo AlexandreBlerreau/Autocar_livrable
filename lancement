@@ -1,0 +1,50 @@
+#! /bin/bash
+# Script de lancement sur environnment local dédié aux testeurs
+
+# On vérifie que nodejs est présent sur la machine, sinon on arrête
+if ! [ -x "$(command -v node)" ]; 
+	then
+  	     echo 'Erreur: NodeJs est pas installé, installez le.' >&2
+  	     exit 1;
+fi
+
+# On vérifie que python3 est présent sur la machien, sinon on arrête
+if ! [ -x "$(command -v python)" ];
+        then
+             echo 'Erreur: Python3 est pas installé, installez le.' >&2
+             exit 1;
+fi
+
+
+# Tout est ok: on part démarer l'API et le serveur web !
+
+# 1. Sauvegarde de l'emplacement de départ
+Path=$(pwd);
+
+# 2. On se positionne à la racine de l'API
+cd $Path/serveur
+
+# 3. Lancement de l'API
+node api.js > /dev/null 2>&1 &
+pidApi=$!
+echo 'API lancé sur le port 8080, en cas de problème: $ kill' $pidApi
+
+
+# API ok: on lance le serveur web
+
+# 1. Retour à l'emplacement de départ
+cd $Path
+
+# 2. On se positionne à la racine des ressources web
+cd $Path/client-js
+
+# 3. Lancement du serveur web
+python3 -m http.server 8000 > /dev/null 2>&1 &
+pidServeur=$!
+echo 'Serveur web lancé sur le port 8000, en cas de problème: $ kill' $pidServeur
+
+# Tout est en route !
+echo "C'est parti! Bonne navigation! --> http://localhost:8000";
+
+
+

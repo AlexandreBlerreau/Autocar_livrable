@@ -1,0 +1,35 @@
+{
+  "name": "autocar",
+  "version": "1.0.0",
+  "description": "Challenge NoConsulting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandreBlerreau/Autocar_livrable.git"
+  },
+  "author": "Alexandre Blerreau <ble.alexandre@gmail.com>",
+  "license": "WTFPL",
+  "homepage": "https://github.com/AlexandreBlerreau/Autocar_livrable#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-private-methods": "^7.3.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "flow-bin": "^0.92.1",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "ajax": "0.0.4",
+    "bulma": "^0.8.0",
+    "jquery": "^3.4.1"
+  }
+}
