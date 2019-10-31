@@ -21,7 +21,8 @@ $ ./lancement
     * Bulma
     * Ajax
     * Jquery
-    
+    * Webpack
+
 ## Auteur 
 * Alexandre Blerreau
 
